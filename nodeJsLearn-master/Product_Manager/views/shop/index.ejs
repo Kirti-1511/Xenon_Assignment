@@ -1,0 +1,62 @@
+<%-include('../includes/head.ejs')%>
+
+    <body>
+
+
+
+        <%-include('../includes/navBar.ejs')%>
+
+            <main class="listHolder">
+                <h1> This Index Products Page </h1>
+                <ul class="ul">
+
+                    <%if(Products.length>0){%>
+                        <%for(let x in Products){%>
+                            <div class="card" style="width: 18rem">
+                                <img src="/<%=Products [x].imageUrl%>" class="cardImage card-img-top" alt="<%=Products.imageUrl%>" />
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <%=Products[x].title%>
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">$
+                                        <%=Products[x].price%>
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <%=Products[x].discription %>
+                                    </p>
+                                </div>
+
+                                <div class=" custom-card-body">
+                                    <a href="/products/<%=Products[x]._id%>" class="btn"> View Details </a>
+                                    <%if(isLoggedIn){%>
+
+                                        <form action="/cart" method="POST">
+
+                                            <input id="id" type="hidden" value="<%=Products[x]._id%>" name="id">
+
+
+                                            <input id="price" type="hidden" value="<%=Products[x].price%>" name="price">
+
+
+                                            <button type="submit" class="btn">Add to cart</button>
+                                        </form>
+                                        <%}%>
+                                </div>
+                            </div>
+
+                            <%}%>
+
+                                <%}else{%>
+                                    <li>Array is blank</li>
+
+                                    <%}%>
+
+
+
+                </ul>
+            </main>
+            <%-include('../includes/end.ejs')%>

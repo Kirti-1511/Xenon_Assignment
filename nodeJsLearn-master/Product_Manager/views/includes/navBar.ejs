@@ -1,0 +1,38 @@
+<nav>
+    <ul class="navBar">
+        <li class="left">
+            <a aria-current="page" href="/"> Home</a>
+        </li>
+        <li class="left">
+            <a href="/products">Products</a>
+        </li>
+
+        <%if(isLoggedIn){%>
+            <li class="left"><a href="/cart ">Cart -</a></li>
+            <li class="left">
+                <a href="/orders ">Orders </a>
+            </li>
+
+            <li class="left">
+                <a href="/admin/products">Admin Products-</a>
+            </li>
+            <li class="left">
+                <a href="/admin/add-products">Add Products</a>
+            </li>
+
+
+            <form action="/logout_user" class="logout" method="POST">
+
+
+                <button type="submit" class="lgt_out">Log_out</button>
+            </form>
+
+
+
+            <%}%>
+                <%if(!isLoggedIn){%>
+                    <li class="login "><a href="/login " class="lgn_btn">Login </a></li>
+                    <li class=" login "><a href="/signup " class="lgn_btn">Sign Up </a></li>
+                    <%}%>
+    </ul>
+</nav>

@@ -1,0 +1,10 @@
+form {
+    display: block;
+    float: right;
+}
+
+.logout_btn {
+    background-color: transparent;
+    color: white;
+    font-weight: bolder;
+}

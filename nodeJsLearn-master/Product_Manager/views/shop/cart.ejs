@@ -1,0 +1,77 @@
+<%-include("../includes/head.ejs") %>
+
+    <body>
+        <%-include( "../includes/navBar.ejs")%>
+            <h1 style="display: flex;justify-content: center;">
+                <p> Here is Your Cart</p>
+                <%if(products.length===0){%>
+
+
+                    <p> ,.. But Your Cart is Empty !!!!</p>
+
+                    <%}%>
+            </h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Products Image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Quantity</th>
+
+                        <th scope="col">Price</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(( element)=>{%>
+                        <tr>
+                            <th scope="row">
+                                <%= element._id %>
+                            </th>
+
+                            <td>
+                                <img src="<%=element.imageUrl %>" height="212px" width="350px" alt="" />
+                            </td>
+
+                            <td>
+                                <%= element.title %>
+                            </td>
+                            <td>
+                                <b> <%= element.quantity %></b>
+                            </td>
+                            <td>
+                                <b> <%=element.price%></b>
+                            </td>
+                            <td>
+                                <b> <%=element.discription %></b>
+                            </td>
+                            <td>
+                                <form action="/cart/<%=element._id%>" method="post">
+                                    <input type="hidden" value="<%=element._id%>" name="id" />
+                                    <button type="submit" class="btn">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <%})%>
+                </tbody>
+            </table>
+            <hr />
+            <div style="
+      display: flex;
+      margin-bottom: 200px;
+      margin-top: 50px;
+      align-items: center;
+      justify-content: center;
+    ">
+                <form action="/orders" method="post">
+                    <button class="btn " type="submit">
+                        Order Now 
+                    </button>
+                </form>
+            </div>
+
+            <%-include("../includes/end.ejs")%>
+    </body>

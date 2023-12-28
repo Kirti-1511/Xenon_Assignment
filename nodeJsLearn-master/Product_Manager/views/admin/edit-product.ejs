@@ -1,0 +1,46 @@
+<%-include('../includes/head.ejs')%>
+
+    <body>
+        <%-include('../includes/navBar.ejs')%>
+            <h1 class="pageHeading">
+                Admin can
+                <%if(edit){%> Edit
+                    <%} else{%> Add
+                        <%}%> products
+            </h1>
+
+            <div class="form-Container">
+                <main class="form-main-container">
+                    <form  enctype="multipart/form-data" action="<% if(edit){%>/admin/edit-product<%}else{%>/admin/add-products<%}%>" class="edit_form" method="POST">
+                        <div class="form-control title">
+                            <label for="title">Enter Title </label>
+                            <input id="title" name="title" value="<%if(edit){%><%=product.title.trim()%><%}%>" type="text" required />
+                        </div>
+                        <div class="form-control title">
+                            <label for="price">Enter Price </label>
+                            <input id="price" value="<%if(edit){%><%=product.price%><%}%>" name="price" type="number" step="0.001" required />
+                        </div>
+                        <div class="form-control title">
+                            <label for="imageUrl">Enter ImageUrl </label>
+                            <input id="imageUrl" value="<%if(edit){%><%=product.imageUrl%><%}%>" name="imageUrl" type="file" required />
+                        </div>
+                        <%if(edit){%>
+                            <div>
+                                <input type="hidden" name="id" value="<%=product._id%>" />
+                            </div>
+
+                            <%}%>
+                                <div class="form-control title">
+                                    <label for="discription">Enter description </label>
+                                    <input id="discription" type="text" value="<%if(edit){%><%=product.discription%><%}%>" name="discription" required />
+                                </div>
+
+                                <div class="form-control">
+                                    <button type="submit" class="form_button">Submit</button>
+                                </div>
+                    </form>
+                </main>
+            </div>
+            <%-include('../includes/end.ejs')%>
+    </body>
+    </head>

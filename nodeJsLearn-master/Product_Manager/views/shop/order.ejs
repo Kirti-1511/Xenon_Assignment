@@ -1,0 +1,127 @@
+<%-include("../includes/head.ejs") %>
+
+    <body>
+        <%-include( "../includes/navBar.ejs")%>
+            <h1 style="display: flex;justify-content: center;">
+                <p> Here is Your Order</p>
+
+            </h1>
+
+
+            <table class="table  ">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">User Details</th>
+                        <th scope="col" colspan="4">Products Details</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(( element)=>{%>
+                        <table class="table   table-hover table-borderless">
+                            <tr aria-rowspan="<%=element.items.length%>">
+
+                                <td rowspan="2">
+                                    <table class="table  table-hover table-borderless">
+                                        <thead>
+                                            <tr>
+
+                                                <th id="1.2">
+                                                    Order Id
+
+                                                </th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td rowspan="<%=element.items.length%>">
+
+                                                    <%=element._id %>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+
+                                <td rowspan="2">
+                                    <table class="table  table-hover table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th id="1.1">
+                                                    User name
+                                                </th>
+                                                <th id="1.2">
+                                                    User Id
+
+                                                </th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="<%=element.items.length%>">
+                                                    <%=element.user.username%>
+                                                </td>
+                                                <td rowspan="<%=element.items.length%>">
+
+                                                    <%=element.user._id %>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                                <td colspan="4">
+                                    <table class="table  table-hover table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th id="2.1">Product Name</th>
+                                                <th id="2.2"> Product Id</th>
+                                                <th id="2.3"> Product Price </th>
+                                                <th id="2.4"> Product quantity</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% element.items.forEach(( prod)=>{%>
+                                                <tr>
+                                                    <td>
+                                                        <%=prod.title%>
+                                                    </td>
+                                                    <td>
+                                                        <%=prod._id%>
+
+                                                    </td>
+                                                    <td>
+                                                        <%=prod.price%>
+
+                                                    </td>
+                                                    <td>
+                                                        <%=prod.quantity%>
+
+                                                    </td>
+
+                                                </tr>
+
+                                                <%})%>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+
+
+
+                            </tr>
+                        </table>
+
+                        <%})%>
+                </tbody>
+            </table>
+
+
+
+            <%-include("../includes/end.ejs")%>
+    </body>

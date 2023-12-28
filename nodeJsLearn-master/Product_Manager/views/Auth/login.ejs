@@ -1,0 +1,32 @@
+<%-include("../includes/head.ejs") %>
+
+    <body>
+        <%-include( "../includes/navBar.ejs")%>
+            <h1 class="pageHeading">
+                Login
+            </h1>
+
+            <div class="form-Container">
+                <main class="form-main-container">
+                    <form action="/login" method="POST">
+                        <div class="form-control title">
+                            <label for="username">Enter Email</label>
+                            <input id="username" name="email" value="" type="text" required />
+                        </div>
+                        <div class="form-control title">
+                            <label for="password">Enter password </label>
+                            <input id="password" value="" name="password" type="password" required />
+                        </div>
+
+
+                        <div class="form-control title">
+                          
+                            <button type="submit" class="btn "> Submit</button>
+                        </div>
+
+                    </form>
+                </main>
+            </div>
+            <%-include('../includes/end.ejs')%>
+    </body>
+    </head>

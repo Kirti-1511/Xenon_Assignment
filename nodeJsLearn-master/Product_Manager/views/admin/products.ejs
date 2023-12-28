@@ -1,0 +1,50 @@
+<%-include('../includes/head.ejs')%>
+
+    <body>
+        <%-include('../includes/navBar.ejs')%>
+
+            <main class="listHolder">
+                <h1>This Index Products Page</h1>
+                <ul class="ul">
+                    <%if(Products.length>0){%>
+                        <%for(let x in Products){%>
+                            <div class="card" style="width: 18rem">
+                                <img src="/<%=Products [x].imageUrl%>" class="cardImage card-img-top" alt="<%=Products.imageUrl%>" />
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <%=Products[x].title%>
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">$
+                                        <%=Products[x].price%>
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <%=Products[x].discription %>
+                                    </p>
+                                </div>
+                                <div class="custom-card-body">
+                                    <a href="/admin/edit-product/<%=Products[x]._id%>?edit=true" class="btn"> Edit Product</a>
+
+                                    <!-- <a href="/%>" class="btn"> Delete Product</a> -->
+
+                                    <form action="/admin/delete-product" method="POST">
+                                        <input id="id" type="hidden" value="<%=Products[x]._id%>" name="id" />
+
+
+                                        <button type="submit" class="btn">Delete Product</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <%}%>
+                                <%}else{%>
+                                    <li>Array is blank</li>
+
+                                    <%}%>
+                </ul>
+            </main>
+            <%-include('../includes/end.ejs')%>
+    </body>

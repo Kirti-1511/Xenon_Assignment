@@ -1,0 +1,26 @@
+li a {
+    display: block;
+    text-decoration: none;
+    /* display: inline; */
+    color: white;
+    font-weight: bolder;
+    padding: 30px 30px;
+    text-align: center;
+}
+
+.navBar {
+    /* position: fixed;
+    top: 0; */
+    list-style: none;
+    background-color: #120E43;
+    width: 100%;
+    overflow: hidden;
+}
+
+.left {
+    float: left;
+}
+
+.login {
+    float: right;
+}

@@ -1,0 +1,62 @@
+<%-include('../includes/head.ejs')%>
+
+    <body>
+        <%-include('../includes/navBar.ejs')%>
+            <center>
+                <h1> This is Prodcuts Details Page </h1>
+            </center>
+            <%if(len>0){%>
+
+
+
+                <div class="container">
+                    <div class="custom-card">
+                        <div class="card" style="width:400px">
+                            <img src=" <%=imageUrl%>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p>
+                                    <b>  <%=id%></b>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <b>  <%=title%></b>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <b>
+                                    <%=price%>
+
+                                </b>
+                                </p>
+
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <b>
+
+                                    <%=description%>
+                                </b>
+                                </p>
+                            </div>
+                            <div class="card-body">
+
+                                <center> <a href="/cart" class="product-details-cart-button-one"> Add to cart</a>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+
+                <%}else{%>
+                    <h1> No Products Details Found </h1>
+
+                    <%}%>
+
+
+    </body>
+
+    </html>

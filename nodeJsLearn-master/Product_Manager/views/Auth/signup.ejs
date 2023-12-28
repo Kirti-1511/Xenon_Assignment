@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/customStyles.css">
+    <!-- <link rel="stylesheet" href="/navBar.css"> -->
+    <link rel="stylesheet" href="/product-form.css" />
+    <link rel="stylesheet" href="/navBar.css">
+
+    <body>
+        <%-include( "../includes/navBar.ejs")%>
+            <h1 class="pageHeading">
+                Sign Up
+            </h1>
+
+            <div class="form-Container">
+                <main class="form-main-container">
+                    <form action="/signup" method="post">
+                        <div class="form-control title">
+                            <label for="username">Enter Email</label>
+                            <input id="username" name="email" value="" type="text" required />
+                        </div>
+                        <div class="form-control title">
+                            <label for="username">Enter username</label>
+                            <input id="username" name="username" value="" type="text" required />
+                        </div>
+                        <div class="form-control title">
+                            <label for="password">Enter password </label>
+                            <input id="password" value="" name="password" type="password" required />
+                        </div>
+                        <div class="form-control title">
+                            <label for="confirm_password">Confirm Your  password </label>
+                            <input id="confirm_password" value="" name="confirm_password" type="password" required />
+                        </div>
+
+
+                        <div class="form-control title">
+                           
+                            <button type="submit" class="btn "> Submit</button>
+                        </div>
+
+                    </form>
+                </main>
+            </div>
+            <%-include('../includes/end.ejs')%>
+    </body>
+</head>
